@@ -8,10 +8,12 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
     public interface UserRepository extends JpaRepository<User, Long> {
-    User findByEmail(String email);
+	// Fazer um metodo seguindo o padrao do query method, deve-se colocar a palavra find e especificar qual a procura.
+    Optional<User> findByEmail(String email);
 
     @Query(nativeQuery = true, value = """
 			SELECT tb_user.email AS username, tb_user.password, tb_role.id AS roleId, tb_role.authority
@@ -21,5 +23,6 @@ import java.util.List;
 			WHERE tb_user.email = :email
 		""")
     List<UserDetailsProjection> searchUserAndRolesByEmail(String email);
+
 
 }
