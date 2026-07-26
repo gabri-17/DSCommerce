@@ -29,13 +29,19 @@ public class OrderService {
     @Autowired
     private OrderItemRepository orderItemRepository;
 
+    @Autowired
+    private AuthService authService;
 
+//      Frontend faz uma requisição para buscar um pedido pelo id.
     @Transactional(readOnly = true)
     public OrderDTO findById(Long id) {
-//        Mandar buscar o meu Order no banco de dados
+//      Mandar buscar o meu Order (pedido) no banco de dados.
         Order order = repository.findById(id).orElseThrow(
                 () -> new ResourceNotFoundException("Recurso não encontrado"));
-        return new OrderDTO(order); // Retornao objeto Order convertendo para DTO.
+//        Testando se o usuário que está logado é o dono desse pedido ou então é um "ADMIN", lançando uma exceção 403
+//        caso não seja cumprido estas premissas.
+        authService.validateSelfOrAdmin(order.getClient().getId());
+        return new OrderDTO(order); // Retorna o objeto Order convertendo para DTO.
     }
 
     @Transactional

@@ -87,6 +87,21 @@ public class User implements UserDetails {
         roles.add(role);
     }
 
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public boolean hasRole(String roleName){
+//         Verificar se contém um certo nome de papel (perfil de usuário) passado no metodo.
+        for (Role role : roles) {
+//            Se algum dos roles do meu usuário for igual a roleName.
+            if (role.getAuthority().equals(roleName)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return roles;

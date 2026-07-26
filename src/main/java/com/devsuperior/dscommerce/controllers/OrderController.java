@@ -23,7 +23,7 @@ public class OrderController {
     @Autowired
     private OrderService service;
 
-    @PreAuthorize("hasRole('ROLE_ADMIN')") // Somente admin que pode buscar um pedido qualquer por id
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_CLIENT')") // Somente admin que pode buscar um pedido qualquer por id
     @GetMapping(value = "/{id}") // Argumento da rota (obrigatório passar)
 //    @PathVariable -> annotation de parâmetro de rota
     public ResponseEntity<OrderDTO> findById(@PathVariable Long id) {
