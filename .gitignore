@@ -1,0 +1,27 @@
+# Arquivos gerados pelo sistema operacional
+.DS_Store
+Thumbs.db
+
+# Arquivos de Log
+*.log
+
+# Arquivos gerados pelo Maven
+/target/
+!/target/classes/application.properties
+!/target/classes/application.yml
+
+# Arquivos de configuração de IDEs
+.idea/
+*.iml
+.vscode/
+.settings/
+.classpath
+.project
+
+# Arquivos gerados pelo STS (Spring Tool Suite)
+.springBeans
+.sts4-cache
+
+# Outros
+HELP.md
+*.excalidraw
