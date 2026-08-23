@@ -10,6 +10,12 @@ public class OrderItemDTO {
     private Integer quantity;
     private String imgUrl;
 
+    /**
+     * Default constructor required for JSON deserialization by Jackson.
+     */
+    public OrderItemDTO() {
+    }
+
     public OrderItemDTO(Long productId, String name, Double price, Integer quantity, String imgUrl) {
         this.productId = productId;
         this.name = name;

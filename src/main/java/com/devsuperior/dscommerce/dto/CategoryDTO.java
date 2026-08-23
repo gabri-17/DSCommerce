@@ -6,6 +6,12 @@ public class CategoryDTO {
     private Long id;
     private String name;
 
+    /**
+     * Default constructor required for JSON deserialization by Jackson.
+     */
+    public CategoryDTO() {
+    }
+
     public CategoryDTO(Long id, String name) {
         this.id = id;
         this.name = name;
