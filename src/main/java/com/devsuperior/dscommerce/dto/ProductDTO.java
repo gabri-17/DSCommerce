@@ -30,9 +30,7 @@ public class ProductDTO {
     @NotEmpty(message = "É obrigatório pelo menos uma categoria")
     private List<CategoryDTO> categories = new ArrayList<>(); // Coleção não pode estar vazia.
 
-    /**
-     * Default constructor required for JSON deserialization by Jackson.
-     */
+
     public ProductDTO() {
     }
 

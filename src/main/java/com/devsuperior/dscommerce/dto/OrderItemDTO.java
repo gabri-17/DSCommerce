@@ -10,9 +10,7 @@ public class OrderItemDTO {
     private Integer quantity;
     private String imgUrl;
 
-    /**
-     * Default constructor required for JSON deserialization by Jackson.
-     */
+
     public OrderItemDTO() {
     }
 

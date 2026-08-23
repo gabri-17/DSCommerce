@@ -19,9 +19,7 @@ public class OrderDTO {
     @NotEmpty(message = "Deve ter pelo menos um item")
     private List<OrderItemDTO> items = new ArrayList<>();
 
-    /**
-     * Default constructor required for JSON deserialization by Jackson.
-     */
+
     public OrderDTO() {
     }
 
